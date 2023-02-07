@@ -9,6 +9,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { register } from "./controllers/auth";
 import loginRoute from "./routes/auth";
+import { verifyToken } from "./middlewares/auth";
 //CONFIGURATIONS
 
 const __filename = fileURLToPath(import.meta.url);
