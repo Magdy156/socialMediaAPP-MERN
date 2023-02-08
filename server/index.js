@@ -9,7 +9,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { register } from "./controllers/auth";
 import loginRoute from "./routes/auth";
-import { verifyToken } from "./middlewares/auth";
+import userRoutes from "./routes/users";
 //CONFIGURATIONS
 
 const __filename = fileURLToPath(import.meta.url);
@@ -48,6 +48,7 @@ app.post("/auth/register", upload.single("picturePath"), register);
 
 // ROUTES
 app.use("/auth", loginRoute);
+app.use("/users", userRoutes);
 
 // MONGOOSE SETUP
 const port = process.env.PORT || 6001;
