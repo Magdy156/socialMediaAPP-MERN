@@ -13,6 +13,9 @@ import userRoutes from "./routes/users";
 import postRoutes from "./routes/posts";
 import { createPost } from "./controllers/posts";
 import { verifyToken } from "./middlewares/auth";
+import { posts, users } from "./data/data";
+import User from "./models/User";
+import Post from "./models/Post";
 //CONFIGURATIONS
 
 const __filename = fileURLToPath(import.meta.url);
@@ -48,7 +51,7 @@ const upload = multer({ storage: storage });
 
 //ROUTES WITH FILES
 app.post("/auth/register", upload.single("picturePath"), register);
-app.post("/posts", upload.single("picturePath"), verifyToken, createPost);
+app.post("/posts", upload.single("picturePath"), createPost);
 
 // ROUTES
 app.use("/auth", loginRoute);
@@ -62,8 +65,12 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() =>
-    app.listen(port, () => console.log(`Server is working on port : ${port}`))
-  )
+  .then(() => {
+    app.listen(port, () => console.log(`Server is working on port : ${port}`));
+
+    //ADD DATA ONE TIME
+    // User.insertMany(users);
+    // Post.insertMany(posts);
+  })
   .catch((error) => console.log(error));
 mongoose.set("strictQuery", true);

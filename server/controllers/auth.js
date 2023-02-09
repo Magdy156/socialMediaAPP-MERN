@@ -1,6 +1,5 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import mongoose from "mongoose";
 import User from "../models/User";
 
 // RGISTER USER
@@ -12,7 +11,6 @@ export const register = async (req, res) => {
       lastName,
       email,
       password,
-      picturePath,
       friends,
       location,
       occupation,
