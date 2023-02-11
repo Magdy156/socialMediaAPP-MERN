@@ -13,11 +13,10 @@ const Navbar= ()=>{
     const isNonMoblieScreens= useMediaQuery("(min-width: 1000px)");
     const theme= useTheme();
     const neutralLight= theme.palette.neutral.light;
-    const dark= theme.palette.neutral.dark;
     const background= theme.palette.background.default
     const primaryLight= theme.palette.primary.light
     const alt= theme.palette.background.alt
-    // const fullName= `${user.firstName}${user.lastName}`
+    const fullName= `${user.firstName} ${user.lastName}`
     return <FlexBetween padding="1rem 6%" backgroundColor={alt}>
         <FlexBetween gap="1.75rem">
             <Typography fontWeight="bold" fontSize="clamp(1rem, 2rem, 2.25rem)" color="primary"
@@ -51,8 +50,8 @@ const Navbar= ()=>{
             <Message sx={{fontSize: "25px"}}/>
             <Help sx={{fontSize: "25px"}}/>
             <Notifications sx={{fontSize: "25px"}}/>
-            <FormControl variant="standard" value= "Magdy Hamdy">
-                <Select value="Magdy Hamdy" sx={{
+            <FormControl variant="standard" value= {fullName}>
+                <Select value={fullName} sx={{
                     backgroundColor: neutralLight,
                     width: "150px",
                     borderRadius: "0.25rem",
@@ -67,8 +66,8 @@ const Navbar= ()=>{
                     }}
                     input={<InputBase />}
                     >
-                        <MenuItem value="Magdy Hamdy">
-                            <Typography>Magdy Hamdy</Typography>
+                        <MenuItem value={fullName}>
+                            <Typography>{fullName}</Typography>
                         </MenuItem>
                         <MenuItem onClick={()=> dispatch(setLogout())}> 
                         Logout
@@ -113,8 +112,8 @@ const Navbar= ()=>{
             <Message sx={{fontSize: "25px"}}/>
             <Help sx={{fontSize: "25px"}}/>
             <Notifications sx={{fontSize: "25px"}}/>
-            <FormControl variant="standard" value= "Magdy Hamdy">
-                <Select value="Magdy Hamdy" sx={{
+            <FormControl variant="standard" value= {fullName}>
+                <Select value={fullName} sx={{
                     backgroundColor: neutralLight,
                     width: "150px",
                     borderRadius: "0.25rem",
@@ -129,8 +128,8 @@ const Navbar= ()=>{
                     }}
                     input={<InputBase />}
                     >
-                        <MenuItem value="Magdy Hamdy">
-                            <Typography>Magdy Hamdy</Typography>
+                        <MenuItem value={fullName}>
+                            <Typography>{fullName}</Typography>
                         </MenuItem>
                         <MenuItem onClick={()=> dispatch(setLogout())}> 
                         Logout

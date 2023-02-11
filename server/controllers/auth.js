@@ -4,7 +4,7 @@ import User from "../models/User";
 
 // RGISTER USER
 export const register = async (req, res) => {
-  //  console.log(req);
+  // console.log(req);
   try {
     const {
       firstName,
