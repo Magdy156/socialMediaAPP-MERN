@@ -47,8 +47,8 @@ export const addRemoveFriend = async (req, res) => {
       return res.status(400).json({ msg: "friend does not exist" });
     }
     if (user.friends.includes(friendId)) {
-      user.friends.filter((id) => id !== friendId);
-      friend.friends.filter((id) => id !== id);
+      user.friends = user.friends.filter((id) => id !== friendId);
+      friend.friends = friend.friends.filter((id) => id !== id);
     } else {
       user.friends.push(friendId);
       friend.friends.push(id);
